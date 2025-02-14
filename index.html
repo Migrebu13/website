@@ -1,363 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Humanitarian Initiative</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Heart - Humanitarian Service</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        /* Modern CSS Reset */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-      --primary: #2c5282;
-      --secondary: #e2e8f0;
-      --accent: #ed8936;
-      --text: #2d3748;
-    }
+        /* Custom Properties */
+        :root {
+            --primary: #2C5282;
+            --secondary: #4299E1;
+            --accent: #ED8936;
+            --text: #2D3748;
+            --light: #F7FAFC;
+            --dark: #1A202C;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+        }
 
-    body {
-      font-family: 'Raleway', sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-    }
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      line-height: 1.2;
-    }
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; }
+        h3 { font-size: 1.75rem; margin-bottom: 1.5rem; }
 
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 1rem;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('/api/placeholder/1920/1080') center/cover;
+            color: var(--light);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
 
-    .nav-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .hero-content {
+            max-width: 800px;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
+        /* Values Section */
+        .values {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
 
-    .nav-links a:hover {
-      color: var(--accent);
-    }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .hero {
-      height: 100vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                  url('/api/placeholder/1920/1080') center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      padding: 0 1rem;
-    }
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
 
-    .hero-content {
-      max-width: 800px;
-    }
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
 
-    .hero h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-    }
+        /* Domains Section */
+        .domains {
+            padding: 5rem 2rem;
+            background: white;
+        }
 
-    .hero p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-    }
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .cta-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: transform 0.3s;
-    }
+        .domain-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-    .cta-button:hover {
-      transform: translateY(-3px);
-    }
+        .domain-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
-    .values {
-      padding: 5rem 1rem;
-      background: var(--secondary);
-    }
+        .domain-content {
+            padding: 1.5rem;
+        }
 
-    .values-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      padding: 2rem 0;
-    }
+        /* Impact Counter */
+        .impact-counter {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
 
-    .value-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .value-card:hover {
-      transform: translateY(-5px);
-    }
+        .counter-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-    .domains {
-      padding: 5rem 1rem;
-    }
+        /* Get Involved Section */
+        .get-involved {
+            padding: 5rem 2rem;
+            background: var(--light);
+            text-align: center;
+        }
 
-    .domain-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+            margin: 1rem;
+        }
 
-    .domain-card {
-      position: relative;
-      height: 400px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+        .cta-button:hover {
+            background: #DD6B20;
+        }
 
-    .domain-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
 
-    .domain-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 2rem;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      color: white;
-    }
+        .social-links {
+            margin: 2rem 0;
+        }
 
-    .impact-counter {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
+        .social-links a {
+            color: var(--light);
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
 
-    .team {
-      padding: 5rem 1rem;
-      background: var(--secondary);
-    }
-
-    .team-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .team-member {
-      text-align: center;
-    }
-
-    .team-member img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      object-fit: cover;
-    }
-
-    .contact {
-      padding: 5rem 1rem;
-    }
-
-    .contact-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .social-links a {
-      color: var(--primary);
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-      color: var(--accent);
-    }
-
-    footer {
-      background: var(--primary);
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .hero { min-height: 80vh; }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-content">
-      <h3>Global Humanitarian Initiative</h3>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#domains">Domains</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#values">Our Values</a>
+        <a href="#domains">Our Work</a>
+        <a href="#get-involved">Get Involved</a>
+    </nav>
 
-  <section class="hero">
-    <div class="hero-content" data-aos="fade-up">
-      <h1>Creating Lasting Change</h1>
-      <p>Empowering communities worldwide through sustainable humanitarian initiatives</p>
-      <a href="#get-involved" class="cta-button">Join Our Mission</a>
-    </div>
-  </section>
-
-  <section class="values" id="about">
-    <div class="values-grid">
-      <div class="value-card" data-aos="fade-up">
-        <h3>Compassion</h3>
-        <p>Leading with empathy and understanding in every action we take</p>
-        <div class="impact-counter">50K+</div>
-        <p>Lives Touched</p>
-      </div>
-      <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>Sustainability</h3>
-        <p>Building long-term solutions that empower communities</p>
-        <div class="impact-counter">100+</div>
-        <p>Projects Completed</p>
-      </div>
-      <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>Innovation</h3>
-        <p>Finding creative solutions to complex challenges</p>
-        <div class="impact-counter">25+</div>
-        <p>Countries Served</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="domains" id="domains">
-    <div class="domain-grid">
-      <div class="domain-card" data-aos="fade-up">
-        <img src="/api/placeholder/600/400" alt="Education">
-        <div class="domain-content">
-          <h3>Education</h3>
-          <p>Building schools and training teachers in underserved communities</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Creating Positive Change</h1>
+            <p class="lead">Together we can build a better world through compassion, action, and dedication.</p>
+            <a href="#get-involved" class="cta-button">Join Our Mission</a>
         </div>
-      </div>
-      <div class="domain-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="/api/placeholder/600/400" alt="Healthcare">
-        <div class="domain-content">
-          <h3>Healthcare</h3>
-          <p>Providing medical services and health education to remote areas</p>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values" id="values">
+        <h2 class="text-center" data-aos="fade-up">Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Compassion</h3>
+                <p>We lead with empathy and understanding, recognizing the dignity of every individual we serve.</p>
+            </div>
+            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>Integrity</h3>
+                <p>Our actions are guided by strong ethical principles and transparency in all we do.</p>
+            </div>
+            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Innovation</h3>
+                <p>We embrace creative solutions and adapt to meet evolving humanitarian challenges.</p>
+            </div>
         </div>
-      </div>
-      <div class="domain-card" data-aos="fade-up" data-aos-delay="200">
-        <img src="/api/placeholder/600/400" alt="Sustainable Development">
-        <div class="domain-content">
-          <h3>Sustainable Development</h3>
-          <p>Implementing eco-friendly solutions for community growth</p>
+    </section>
+
+    <!-- Domains Section -->
+    <section class="domains" id="domains">
+        <h2 class="text-center" data-aos="fade-up">Our Impact Areas</h2>
+        <div class="domain-grid">
+            <div class="domain-card" data-aos="fade-up">
+                <img src="/api/placeholder/400/300" alt="Education Initiative">
+                <div class="domain-content">
+                    <h3>Education</h3>
+                    <p>Building schools and training teachers to create lasting educational impact.</p>
+                    <p><strong>Impact:</strong> 10,000+ students reached</p>
+                </div>
+            </div>
+            <div class="domain-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="/api/placeholder/400/300" alt="Healthcare Programs">
+                <div class="domain-content">
+                    <h3>Healthcare</h3>
+                    <p>Providing essential medical services and health education to communities.</p>
+                    <p><strong>Impact:</strong> 15,000+ patients served</p>
+                </div>
+            </div>
+            <div class="domain-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="/api/placeholder/400/300" alt="Community Development">
+                <div class="domain-content">
+                    <h3>Community Development</h3>
+                    <p>Empowering communities through sustainable development projects.</p>
+                    <p><strong>Impact:</strong> 50+ communities transformed</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="team" id="team">
-    <div class="team-grid">
-      <div class="team-member" data-aos="fade-up">
-        <img src="/api/placeholder/400/400" alt="Team Member">
-        <h3>Sarah Johnson</h3>
-        <p>Executive Director</p>
-      </div>
-      <div class="team-member" data-aos="fade-up" data-aos-delay="100">
-        <img src="/api/placeholder/400/400" alt="Team Member">
-        <h3>Michael Chen</h3>
-        <p>Operations Director</p>
-      </div>
-      <div class="team-member" data-aos="fade-up" data-aos-delay="200">
-        <img src="/api/placeholder/400/400" alt="Team Member">
-        <h3>Elena Rodriguez</h3>
-        <p>Field Coordinator</p>
-      </div>
-    </div>
-  </section>
+    <!-- Impact Counter -->
+    <section class="impact-counter">
+        <div class="counter-grid">
+            <div class="counter-item" data-aos="fade-up">
+                <h3>25,000+</h3>
+                <p>Lives Impacted</p>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="100">
+                <h3>100+</h3>
+                <p>Active Projects</p>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
+                <h3>30+</h3>
+                <p>Countries Reached</p>
+            </div>
+        </div>
+    </section>
 
-  <section class="contact" id="contact">
-    <div class="contact-content">
-      <h2>Join Our Mission</h2>
-      <p>Together, we can make a lasting difference in communities worldwide</p>
-      <div class="social-links">
-        <a href="#" aria-label="Facebook">📱</a>
-        <a href="#" aria-label="Twitter">📞</a>
-        <a href="#" aria-label="Instagram">📧</a>
-      </div>
-      <p>Email: contact@globalhumanitarian.org</p>
-      <p>Phone: +1 (555) 123-4567</p>
-    </div>
-  </section>
+    <!-- Get Involved Section -->
+    <section class="get-involved" id="get-involved">
+        <h2 data-aos="fade-up">Join Our Mission</h2>
+        <p data-aos="fade-up">There are many ways to contribute to our cause and make a difference.</p>
+        <div data-aos="fade-up" data-aos-delay="100">
+            <a href="#volunteer" class="cta-button">Volunteer</a>
+            <a href="#donate" class="cta-button">Donate</a>
+            <a href="#partner" class="cta-button">Partner With Us</a>
+        </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Global Humanitarian Initiative. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+        <p>Contact us: info@globalheartservice.org | +1 (555) 123-4567</p>
+        <p>&copy; 2025 Global Heart Humanitarian Service. All rights reserved.</p>
+    </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
 </body>
 </html>
