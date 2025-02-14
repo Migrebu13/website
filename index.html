@@ -1,501 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>MIGREBU - Humanitarian Service</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Modern CSS Reset */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Custom Properties */
-        :root {
-            --primary: #000080;        /* Navy Blue */
-            --secondary: #1a237e;      /* Darker Navy */
-            --accent: #FF5722;         /* Orange */
-            --accent-hover: #F4511E;   /* Darker Orange */
-            --grey-light: #F5F5F5;     /* Light Grey */
-            --grey-medium: #9E9E9E;    /* Medium Grey */
-            --grey-dark: #424242;      /* Dark Grey */
-            --white: #FFFFFF;
-        }
-
-        /* Base Styles */
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            color: var(--grey-dark);
-            overflow-x: hidden;
-            background-color: var(--white);
-        }
-
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 { font-size: 3.5rem; }
-        h2 { font-size: 2.5rem; margin-bottom: 2rem; }
-        h3 { font-size: 1.75rem; margin-bottom: 1.5rem; }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                        url('/api/placeholder/1920/1080') center/cover;
-            color: var(--light);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        /* Navigation */
-       
-
-        /* Values Section */
-        .values {
-            padding: 5rem 2rem;
-            background: var(--light);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .value-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .value-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Domains Section */
-        .domains {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .domain-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .domain-card {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .domain-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .domain-content {
-            padding: 1.5rem;
-        }
-
-        /* Impact Counter */
-        .impact-counter {
-            background: var(--primary);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .counter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .counter-item h3 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Get Involved Section */
-        .get-involved {
-            padding: 5rem 2rem;
-            background: var(--light);
-            text-align: center;
-        }
-
-        .cta-button {
-            background: var(--accent);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: var(--accent-hover);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--light);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .social-links {
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            color: var(--light);
-            margin: 0 1rem;
-            font-size: 1.5rem;
-            text-decoration: none;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            .hero { min-height: 80vh; }
-        }
-
-          .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--primary);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Quote of the Day Section */
-        .quote-section {
-            background: var(--secondary);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .quote-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .quote-text {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .quote-author {
-            font-weight: 600;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            padding: 5rem 2rem;
-            background: var(--light);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 1rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-
-        /* Updated Social Links */
-        .social-links {
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            color: var(--light);
-            margin: 0 1rem;
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIGREBU - Home</title>
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-     <nav class="nav">
-        <a href="#home" class="nav-brand">MIGREBU</a>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#values">Our Values</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#domains">Our Work</a>
-            <a href="#get-involved">Get Involved</a>
-        </div>
-    </nav>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="MIGREBU Logo">
+      <h1>MIGREBU</h1>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content" data-aos="fade-up">
-            <h1>Creating Positive Change</h1>
-            <p class="lead">Together we can build a better world through compassion, action, and dedication.</p>
-            <a href="#get-involved" class="cta-button">Join Our Mission</a>
-        </div>
-    </section>
+  <section class="hero">
+    <div class="mission">
+      <h2>Our Mission</h2>
+      <p>To empower communities and transform lives through humanitarian service.</p>
+    </div>
+    <div class="values">
+      <div class="value">
+        <img src="icons/value1.png" alt="Value 1 Icon">
+        <p>Compassion</p>
+      </div>
+      <div class="value">
+        <img src="icons/value2.png" alt="Value 2 Icon">
+        <p>Integrity</p>
+      </div>
+      <div class="value">
+        <img src="icons/value3.png" alt="Value 3 Icon">
+        <p>Collaboration</p>
+      </div>
+      <div class="value">
+        <img src="icons/value4.png" alt="Value 4 Icon">
+        <p>Innovation</p>
+      </div>
+      <div class="value">
+        <img src="icons/value5.png" alt="Value 5 Icon">
+        <p>Sustainability</p>
+      </div>
+    </div>
+    <div class="vision">
+      <h2>Our Vision</h2>
+      <p>A world where every individual has the opportunity to thrive.</p>
+    </div>
+  </section>
 
-    <!-- Values Section -->
-    <section class="values" id="values">
-        <h2 class="text-center" data-aos="fade-up">Our Core Values</h2>
-        <div class="values-grid">
-            <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-                <h3>Compassion</h3>
-                <p>We lead with empathy and understanding, recognizing the dignity of every individual we serve.</p>
-            </div>
-            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-                <h3>Integrity</h3>
-                <p>Our actions are guided by strong ethical principles and transparency in all we do.</p>
-            </div>
-            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Innovation</h3>
-                <p>We embrace creative solutions and adapt to meet evolving humanitarian challenges.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="quote-section">
-        <div class="quote-container" data-aos="fade-up">
-            <p class="quote-text" id="quote-text"></p>
-            <p class="quote-author" id="quote-author"></p>
-        </div>
-    </section>
-
-    <!-- Domains Section -->
-    <section class="domains" id="domains">
-        <h2 class="text-center" data-aos="fade-up">Our Impact Areas</h2>
-        <div class="domain-grid">
-            <div class="domain-card" data-aos="fade-up">
-                <img src="/api/placeholder/400/300" alt="Education Initiative">
-                <div class="domain-content">
-                    <h3>Education</h3>
-                    <p>Building schools and training teachers to create lasting educational impact.</p>
-                    <p><strong>Impact:</strong> 10,000+ students reached</p>
-                </div>
-            </div>
-            <div class="domain-card" data-aos="fade-up" data-aos-delay="100">
-                <img src="/api/placeholder/400/300" alt="Healthcare Programs">
-                <div class="domain-content">
-                    <h3>Healthcare</h3>
-                    <p>Providing essential medical services and health education to communities.</p>
-                    <p><strong>Impact:</strong> 15,000+ patients served</p>
-                </div>
-            </div>
-            <div class="domain-card" data-aos="fade-up" data-aos-delay="200">
-                <img src="/api/placeholder/400/300" alt="Community Development">
-                <div class="domain-content">
-                    <h3>Community Development</h3>
-                    <p>Empowering communities through sustainable development projects.</p>
-                    <p><strong>Impact:</strong> 50+ communities transformed</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-     <!-- Gallery Section -->
-    <section class="gallery-section" id="gallery">
-        <h2 class="text-center" data-aos="fade-up">Our Work in Action</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item" data-aos="fade-up">
-                <img src="/api/placeholder/600/450" alt="Community Service">
-                <div class="gallery-caption">
-                    <h4>Community Outreach</h4>
-                    <p>Supporting local communities through various initiatives</p>
-                </div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <img src="/api/placeholder/600/450" alt="Education Programs">
-                <div class="gallery-caption">
-                    <h4>Education Initiative</h4>
-                    <p>Providing quality education to underprivileged children</p>
-                </div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <img src="/api/placeholder/600/450" alt="Healthcare Services">
-                <div class="gallery-caption">
-                    <h4>Healthcare Services</h4>
-                    <p>Delivering essential medical care to communities</p>
-                </div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <img src="/api/placeholder/600/450" alt="Youth Development">
-                <div class="gallery-caption">
-                    <h4>Youth Programs</h4>
-                    <p>Empowering the next generation</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Counter -->
-    <section class="impact-counter">
-        <div class="counter-grid">
-            <div class="counter-item" data-aos="fade-up">
-                <h3>25,000+</h3>
-                <p>Lives Impacted</p>
-            </div>
-            <div class="counter-item" data-aos="fade-up" data-aos-delay="100">
-                <h3>100+</h3>
-                <p>Active Projects</p>
-            </div>
-            <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
-                <h3>30+</h3>
-                <p>Countries Reached</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Get Involved Section -->
-    <section class="get-involved" id="get-involved">
-        <h2 data-aos="fade-up">Join Our Mission</h2>
-        <p data-aos="fade-up">There are many ways to contribute to our cause and make a difference.</p>
-        <div data-aos="fade-up" data-aos-delay="100">
-            <a href="#volunteer" class="cta-button">Volunteer</a>
-            <a href="#donate" class="cta-button">Donate</a>
-            <a href="#partner" class="cta-button">Partner With Us</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
-        <p>Contact us: info@globalheartservice.org | +1 (555) 123-4567</p>
-        <p>&copy; 2025 Global Heart Humanitarian Service. All rights reserved.</p>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-         const quotes = [
-            { text: "The best way to find yourself is to lose yourself in the service of others.", author: "Mahatma Gandhi" },
-            { text: "We make a living by what we get, but we make a life by what we give.", author: "Winston Churchill" },
-            { text: "Service to others is the rent you pay for your room here on earth.", author: "Muhammad Ali" },
-            { text: "The best antidote to despair is action.", author: "Joan Baez" },
-            { text: "Life's most persistent and urgent question is, what are you doing for others?", author: "Martin Luther King Jr." }
-        ];
-
-        function updateQuote() {
-            const today = new Date();
-            const index = today.getDate() % quotes.length;
-            document.getElementById('quote-text').textContent = `"${quotes[index].text}"`;
-            document.getElementById('quote-author').textContent = `- ${quotes[index].author}`;
-        }
-
-        updateQuote();
-
-        
-    </script>
+  <footer>
+    <div class="social-media">
+      <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+    </div>
+    <div class="contact">
+      <p>Email: info@migrebu.org | Phone: +123 456 7890</p>
+    </div>
+    <div class="quote">
+      <p>"Together, we can make a difference."</p>
+    </div>
+  </footer>
 </body>
 </html>
