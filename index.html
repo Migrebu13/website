@@ -16,20 +16,23 @@
 
         /* Custom Properties */
         :root {
-            --primary: #2C5282;
-            --secondary: #4299E1;
-            --accent: #ED8936;
-            --text: #2D3748;
-            --light: #F7FAFC;
-            --dark: #1A202C;
+            --primary: #000080;        /* Navy Blue */
+            --secondary: #1a237e;      /* Darker Navy */
+            --accent: #FF5722;         /* Orange */
+            --accent-hover: #F4511E;   /* Darker Orange */
+            --grey-light: #F5F5F5;     /* Light Grey */
+            --grey-medium: #9E9E9E;    /* Medium Grey */
+            --grey-dark: #424242;      /* Dark Grey */
+            --white: #FFFFFF;
         }
 
         /* Base Styles */
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
             line-height: 1.6;
-            color: var(--text);
+            color: var(--grey-dark);
             overflow-x: hidden;
+            background-color: var(--white);
         }
 
         /* Typography */
@@ -61,15 +64,7 @@
         }
 
         /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+       
 
         /* Values Section */
         .values {
@@ -157,18 +152,16 @@
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
             background: var(--accent);
-            color: white;
-            text-decoration: none;
+            color: var(--white);
+            padding: 1rem 2rem;
             border-radius: 4px;
-            transition: background 0.3s ease;
-            margin: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
         .cta-button:hover {
-            background: #DD6B20;
+            background: var(--accent-hover);
         }
 
         /* Footer */
@@ -223,13 +216,14 @@
         }
 
         .nav-links a {
+            color: var(--primary);
             text-decoration: none;
-            color: var(--text);
+            padding: 0.5rem 1rem;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
 
         /* Quote of the Day Section */
