@@ -90,9 +90,6 @@
             text-decoration: none;
             color: var(--text);
             transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
         
         .nav-links a:hover {
@@ -100,6 +97,14 @@
         }
 
         /* Value Cards with Icons */
+        .values-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
         .value-card {
             background: white;
             padding: 2rem;
@@ -107,6 +112,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
             text-align: center;
+            flex: 1 1 30%;
         }
 
         .value-card i {
@@ -120,12 +126,21 @@
         }
 
         /* Domain Cards with Interactive Elements */
+        .domain-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
         .domain-card {
             position: relative;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            flex: 1 1 30%;
         }
 
         .domain-card:hover {
@@ -148,10 +163,23 @@
         }
 
         /* Counter Animation */
+        .counter-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .counter-item {
+            text-align: center;
+            flex: 1 1 30%;
+        }
+
         .counter-item i {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--light);
+            color: var(--primary);
         }
 
         /* Interactive CTA Buttons */
@@ -198,9 +226,6 @@
         .footer-links a {
             color: var(--light);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         /* Social Media Icons */
@@ -232,6 +257,10 @@
             .nav-links {
                 display: none;
             }
+
+            .values-grid, .domain-grid, .counter-grid {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -243,21 +272,21 @@
             MIGREBU
         </a>
         <div class="nav-links">
-            <a href="#home"><i class="fas fa-home"></i> Home</a>
-            <a href="#values"><i class="fas fa-star"></i> Values</a>
-            <a href="#gallery"><i class="fas fa-images"></i> Gallery</a>
-            <a href="#domains"><i class="fas fa-globe"></i> Our Work</a>
-            <a href="#get-involved"><i class="fas fa-hands-helping"></i> Get Involved</a>
+            <a href="#home">Home</a>
+            <a href="#values">Values</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#domains">Our Work</a>
+            <a href="#get-involved">Get Involved</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content" data-aos="fade-up">
-            <h1><i class="fas fa-globe-americas"></i> Creating Positive Change</h1>
+            <h1>Creating Positive Change</h1>
             <p class="lead">Together we can build a better world through compassion, action, and dedication.</p>
             <a href="#get-involved" class="cta-button">
-                <i class="fas fa-hand-heart"></i> Join Our Mission
+                Join Our Mission
             </a>
         </div>
     </section>
@@ -291,15 +320,13 @@
             <div class="domain-card" data-aos="fade-up">
                 <img src="https://picsum.photos/seed/education/400/300" alt="Education Initiative">
                 <div class="domain-content">
-                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <h3>Education</h3>
                     <p>Building schools and training teachers to create lasting educational impact.</p>
                     <div class="domain-stats">
                         <div class="stat-item">
-                            <i class="fas fa-user-graduate"></i>
                             <span>10,000+ students</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fas fa-school"></i>
                             <span>50+ schools</span>
                         </div>
                     </div>
@@ -308,15 +335,13 @@
             <div class="domain-card" data-aos="fade-up" data-aos-delay="100">
                 <img src="https://picsum.photos/seed/healthcare/400/300" alt="Healthcare Programs">
                 <div class="domain-content">
-                    <h3><i class="fas fa-heartbeat"></i> Healthcare</h3>
+                    <h3>Healthcare</h3>
                     <p>Providing essential medical services and health education to communities.</p>
                     <div class="domain-stats">
                         <div class="stat-item">
-                            <i class="fas fa-user-md"></i>
                             <span>15,000+ patients</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fas fa-hospital"></i>
                             <span>25+ clinics</span>
                         </div>
                     </div>
@@ -325,15 +350,13 @@
             <div class="domain-card" data-aos="fade-up" data-aos-delay="200">
                 <img src="https://picsum.photos/seed/community/400/300" alt="Community Development">
                 <div class="domain-content">
-                    <h3><i class="fas fa-hands-helping"></i> Community Development</h3>
+                    <h3>Community Development</h3>
                     <p>Empowering communities through sustainable development projects.</p>
                     <div class="domain-stats">
                         <div class="stat-item">
-                            <i class="fas fa-users"></i>
                             <span>50+ communities</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fas fa-project-diagram"></i>
                             <span>100+ projects</span>
                         </div>
                     </div>
@@ -346,17 +369,14 @@
     <section class="impact-counter">
         <div class="counter-grid">
             <div class="counter-item" data-aos="fade-up">
-                <i class="fas fa-users"></i>
                 <h3 class="counter">25,000+</h3>
                 <p>Lives Impacted</p>
             </div>
             <div class="counter-item" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-project-diagram"></i>
                 <h3 class="counter">100+</h3>
                 <p>Active Projects</p>
             </div>
             <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-globe-americas"></i>
                 <h3 class="counter">30+</h3>
                 <p>Countries Reached</p>
             </div>
@@ -370,28 +390,28 @@
             <div class="gallery-item" data-aos="fade-up">
                 <img src="https://picsum.photos/seed/community1/600/450" alt="Community Service">
                 <div class="gallery-caption">
-                    <h4><i class="fas fa-hands-helping"></i> Community Outreach</h4>
+                    <h4>Community Outreach</h4>
                     <p>Supporting local communities through various initiatives</p>
                 </div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
                 <img src="https://picsum.photos/seed/education1/600/450" alt="Education Programs">
                 <div class="gallery-caption">
-                    <h4><i class="fas fa-graduation-cap"></i> Education Initiative</h4>
+                    <h4>Education Initiative</h4>
                     <p>Providing quality education to underprivileged children</p>
                 </div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
                 <img src="https://picsum.photos/seed/healthcare1/600/450" alt="Healthcare Services">
                 <div class="gallery-caption">
-                    <h4><i class="fas fa-heartbeat"></i> Healthcare Services</h4>
+                    <h4>Healthcare Services</h4>
                     <p>Delivering essential medical care to communities</p>
                 </div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
                 <img src="https://picsum.photos/seed/youth1/600/450" alt="Youth Development">
                 <div class="gallery-caption">
-                    <h4><i class="fas fa-child"></i> Youth Programs</h4>
+                    <h4>Youth Programs</h4>
                     <p>Empowering the next generation</p>
                 </div>
             </div>
@@ -399,33 +419,29 @@
     </section>
 
     <!-- Get Involved Section -->
-  <!-- Get Involved Section -->
     <section class="get-involved" id="get-involved">
-        <h2 data-aos="fade-up"><i class="fas fa-handshake"></i> Join Our Mission</h2>
+        <h2 data-aos="fade-up">Join Our Mission</h2>
         <p data-aos="fade-up">There are many ways to contribute to our cause and make a difference.</p>
         <div class="involvement-grid" data-aos="fade-up" data-aos-delay="100">
             <div class="involvement-card">
-                <i class="fas fa-hands-helping"></i>
                 <h3>Volunteer</h3>
                 <p>Join our global network of volunteers making a difference.</p>
                 <a href="#volunteer" class="cta-button">
-                    <i class="fas fa-user-plus"></i> Start Volunteering
+                    Start Volunteering
                 </a>
             </div>
             <div class="involvement-card">
-                <i class="fas fa-gift"></i>
                 <h3>Donate</h3>
                 <p>Support our initiatives through financial contributions.</p>
                 <a href="#donate" class="cta-button">
-                    <i class="fas fa-heart"></i> Make a Donation
+                    Make a Donation
                 </a>
             </div>
             <div class="involvement-card">
-                <i class="fas fa-handshake"></i>
                 <h3>Partner With Us</h3>
                 <p>Create lasting impact through strategic partnerships.</p>
                 <a href="#partner" class="cta-button">
-                    <i class="fas fa-building"></i> Become a Partner
+                    Become a Partner
                 </a>
             </div>
         </div>
@@ -433,23 +449,20 @@
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
-        <h2 data-aos="fade-up"><i class="fas fa-envelope"></i> Get in Touch</h2>
+        <h2 data-aos="fade-up">Get in Touch</h2>
         <div class="contact-grid">
             <div class="contact-info" data-aos="fade-right">
                 <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
                     <h3>Our Location</h3>
                     <p>123 Humanitarian Way</p>
                     <p>Global City, GC 12345</p>
                 </div>
                 <div class="contact-card">
-                    <i class="fas fa-phone"></i>
                     <h3>Phone</h3>
                     <p>+1 (555) 123-4567</p>
                     <p>+1 (555) 987-6543</p>
                 </div>
                 <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
                     <p>info@globalheartservice.org</p>
                     <p>support@globalheartservice.org</p>
@@ -457,19 +470,16 @@
             </div>
             <form class="contact-form" data-aos="fade-left">
                 <div class="form-group">
-                    <i class="fas fa-user"></i>
                     <input type="text" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <i class="fas fa-envelope"></i>
                     <input type="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <i class="fas fa-comment"></i>
                     <textarea placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="cta-button">
-                    <i class="fas fa-paper-plane"></i> Send Message
+                    Send Message
                 </button>
             </form>
         </div>
@@ -478,12 +488,12 @@
     <!-- Newsletter Section -->
     <section class="newsletter-section">
         <div class="newsletter-content" data-aos="fade-up">
-            <h2><i class="fas fa-newspaper"></i> Stay Updated</h2>
+            <h2>Stay Updated</h2>
             <p>Subscribe to our newsletter for the latest updates and stories.</p>
             <form class="newsletter-form">
                 <input type="email" placeholder="Enter your email" required>
                 <button type="submit" class="cta-button">
-                    <i class="fas fa-envelope"></i> Subscribe
+                    Subscribe
                 </button>
             </form>
         </div>
@@ -493,7 +503,7 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-section">
-                <h4><i class="fas fa-heart"></i> About Us</h4>
+                <h4>About Us</h4>
                 <p>Global Heart Humanitarian Service is dedicated to creating positive change through compassion, action, and dedication.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -504,32 +514,32 @@
                 </div>
             </div>
             <div class="footer-section">
-                <h4><i class="fas fa-link"></i> Quick Links</h4>
+                <h4>Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="#values"><i class="fas fa-chevron-right"></i> Our Values</a></li>
-                    <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-                    <li><a href="#domains"><i class="fas fa-chevron-right"></i> Our Work</a></li>
-                    <li><a href="#get-involved"><i class="fas fa-chevron-right"></i> Get Involved</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#values">Our Values</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#domains">Our Work</a></li>
+                    <li><a href="#get-involved">Get Involved</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4><i class="fas fa-hands-helping"></i> Our Programs</h4>
+                <h4>Our Programs</h4>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Education Initiative</a></li>
-                    <li><a href="#"><i class="fas fa-heartbeat"></i> Healthcare Programs</a></li>
-                    <li><a href="#"><i class="fas fa-users"></i> Community Development</a></li>
-                    <li><a href="#"><i class="fas fa-child"></i> Youth Empowerment</a></li>
-                    <li><a href="#"><i class="fas fa-hand-holding-heart"></i> Emergency Relief</a></li>
+                    <li><a href="#">Education Initiative</a></li>
+                    <li><a href="#">Healthcare Programs</a></li>
+                    <li><a href="#">Community Development</a></li>
+                    <li><a href="#">Youth Empowerment</a></li>
+                    <li><a href="#">Emergency Relief</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4><i class="fas fa-envelope"></i> Contact Info</h4>
+                <h4>Contact Info</h4>
                 <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt"></i> 123 Humanitarian Way, Global City, GC 12345</li>
-                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                    <li><i class="fas fa-envelope"></i> info@globalheartservice.org</li>
-                    <li><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</li>
+                    <li>123 Humanitarian Way, Global City, GC 12345</li>
+                    <li>+1 (555) 123-4567</li>
+                    <li>info@globalheartservice.org</li>
+                    <li>Mon-Fri: 9:00 AM - 5:00 PM</li>
                 </ul>
             </div>
         </div>
